@@ -9,10 +9,10 @@ from dhanhq import dhanhq
 from google.oauth2.service_account import Credentials
 
 # === Configuration ===
-CLIENT_ID = os.getenv("DHAN_CLIENT_ID", "YOUR_DHAN_CLIENT_ID")
-ACCESS_TOKEN = os.getenv("DHAN_ACCESS_TOKEN", "YOUR_DHAN_ACCESS_TOKEN")
-GOOGLE_SHEET_URL = os.getenv("GOOGLE_SHEET_URL", "YOUR_GOOGLE_SHEET_URL")
-SYMBOL = os.getenv("SYMBOL", "NIFTYBEES")
+CLIENT_ID = os.getenv("CLIENT_ID")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+GOOGLE_SHEET_URL = os.getenv("GOOGLE_SHEET_URL")
+SYMBOL = "NIFTYBEES"
 
 # === Logging setup ===
 logging.basicConfig(
@@ -25,8 +25,8 @@ logging.basicConfig(
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 def get_gsheet_client():
-    creds = Credentials.from_service_account_file(
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"], scopes=SCOPES
+    creds = Credentials.from_service_account_info(
+        json.loads(os.environ["GCP_SERVICE_ACCOUNT"]), scopes=SCOPES
     )
     client = gspread.authorize(creds)
     return client
