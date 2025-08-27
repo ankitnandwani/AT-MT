@@ -9,6 +9,12 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
 
+    env:
+      GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
