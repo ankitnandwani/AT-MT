@@ -25,7 +25,6 @@ logging.basicConfig(
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 def get_gsheet_client():
-    logging.info("GCP_SERVICE_ACCOUNT : " + str(os.environ["GCP_SERVICE_ACCOUNT"]))
     creds = Credentials.from_service_account_info(
         json.loads(os.environ["GCP_SERVICE_ACCOUNT"]), scopes=SCOPES
     )
@@ -157,10 +156,6 @@ def create_blank_row(holding, investment, closing_price):
 def main():
     try:
         # Initialize clients
-        logging.info("Starting money tree")
-        logging.info("CLIENT_ID : " + str(CLIENT_ID))
-        logging.info("ACCESS_TOKEN : " + str(ACCESS_TOKEN))
-        logging.info("GOOGLE_SHEET_URL : " + str(GOOGLE_SHEET_URL))
         dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
         gclient = get_gsheet_client()
         sheet = gclient.open_by_key(GOOGLE_SHEET_URL)

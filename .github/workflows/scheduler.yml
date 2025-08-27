@@ -11,7 +11,7 @@ jobs:
 
     env:
       GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-      GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+      GOOGLE_SHEET_URL: ${{ secrets.GOOGLE_SHEET_URL }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
 
