@@ -2,7 +2,7 @@ name: Money Tree
 
 on:
   schedule:
-    - cron: "00 11 * * 1-5"   # Every weekday at 6 PM IST
+    - cron: "00 10 * * 1-5"   # Every weekday at 6 PM IST
   workflow_dispatch:          # Also allow manual run
 
 jobs:
